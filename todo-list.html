@@ -6,18 +6,20 @@
     <title>Todolist : Studi Kasus</title>
 </head>
 <body>
+    <form name="todoForm">
     <table>
         <tbody>
-            <tr>
-                <td><label for="todo">Todo : </label></td>
-                <td><input type="text" id="todo" name="todo"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Submit"></td>
-            </tr>
-        </tbody>
-    </table>
+                <tr>
+                    <td><label for="todo">Todo : </label></td>
+                    <td><input type="text" id="todo" name="todo"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 
     <h1>Todolist</h1>
 
@@ -33,5 +35,26 @@
             </tr>
         </tbody>
     </table>
+
+
+    <script>
+        // inisiasi array untuk menyimpan setiap value nya
+        const todoList = [];
+
+        document.forms['todoForm'].onsubmit = function ( event ) {
+            // ignore submit
+            event.preventDefault();
+
+            // ambil data todo
+            const todo = document.forms['todoForm']['todo'].value;
+            // tambahkan data todo kedalam array todoList
+            todoList.push(todo);
+
+            // clear/bersihkan input value sebelumnya
+            document.forms['todoForm'].reset();
+
+            console.info(todoList);
+        }
+    </script>
 </body>
 </html>
