@@ -35,7 +35,7 @@ const displayTodolist = () => {
     inputCheckbox.type = "checkbox";
     inputCheckbox.name = "checked";
     inputCheckbox.classList.add("checked");
-    // inputCheckbox.checked = 1;
+    inputCheckbox.onclick = () => doneTodo(index);
     div.appendChild(inputCheckbox);
 
     // inisiasi var untuk menyimpan data deskripsi todo hasil input
@@ -62,6 +62,20 @@ const displayTodolist = () => {
     todoList.splice(index, 1);
     //   jalankan display todolist ulang / refresh halaman
     displayTodolist();
+  };
+
+  const doneTodo = (index) => {
+    const todoListBody = document.getElementById("todolistBody");
+    const alertDivs = todoListBody.querySelectorAll(".alert");
+
+    // ambil elemen .alert sesuai index
+    const alertDiv = alertDivs[index];
+    const spanTodo = alertDiv.querySelector("span");
+
+    // toggle class slice untuk membuat efek selesai/tidak selesai
+    alertDiv.classList.toggle("bg-secondary");
+    // toggle class slice untuk membuat efek selesai/tidak selesai
+    spanTodo.classList.toggle("slice");
   };
 
   // jalankan perulangan untuk setiap data yang ada didalam array todoList

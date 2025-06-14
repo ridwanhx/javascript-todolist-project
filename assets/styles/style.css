@@ -157,7 +157,7 @@ span.slice {
 }
 
 .close {
-    background-color: #fff;
+    background-color: transparent;
     border: none;
     transform: scaleX(1.5) scaleY(1.25);
     border-radius: 3px;
@@ -198,4 +198,7 @@ span.slice {
 .bg-dark {
     background-color: #333;
     color: #fff;
+}
+.bg-secondary {
+    background-color: #d9d9d9;
 }
