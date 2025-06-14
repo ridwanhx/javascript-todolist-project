@@ -1,0 +1,201 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* Custom Style */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+.container {
+    /* background-color: salmon; */
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+.card {
+    padding: 40px;
+    /* background-color: royalblue; */
+}
+
+.card-title {
+    margin-bottom: 2em;
+}
+.card-title h3 {
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.mb-3 {
+    margin-bottom: 1.3rem;
+}
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-input {
+    width: 90%;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid #333;
+    border-left: 0;
+    padding-bottom: 8px;
+    margin-right: 10px;
+    font-size:medium;
+}
+
+.form-default {
+    width: 30%;
+    min-width: 150px;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+}
+
+.label-default {
+    display: block;
+    background-color: salmon;
+}
+
+.btn {
+    /* transform: scale(1.9); */
+    padding: 8px 16px;
+    font-size: large;
+    border: none;
+    border-radius: 2.5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: rgba(3, 3, 3, .7);
+}
+.btn-dark:hover {
+    background-color: rgba(3, 3, 3, 1);
+}
+
+/* reset focus input */
+*:focus {
+    outline: none;
+}
+
+
+/* alert */
+.alert {
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checked {
+    transform: scale(1.25);
+}
+
+span.slice {
+    text-decoration: line-through;
+}
+.alert div > input[type="checkbox"] + span {
+    margin-left: 8px;
+}
+
+.close {
+    background-color: #fff;
+    border: none;
+    transform: scaleX(1.5) scaleY(1.25);
+    border-radius: 3px;
+    color: rgb(118,118,118);
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+.close:hover {
+    color: #333;
+}
+
+
+/* utilities */
+.d-flex {
+    display: flex;
+}
+.justify-content-start {
+    justify-content: start;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.justify-content-end {
+    justify-content: end;
+}
+.align-items-start {
+    align-items: start;
+}
+.align-items-center {
+    align-items: center;
+}
+.align-items-end {
+    align-items: end;
+}
+
+/* colors */
+.bg-dark {
+    background-color: #333;
+    color: #fff;
+}
