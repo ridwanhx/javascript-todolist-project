@@ -1,9 +1,6 @@
 // # logic menambahkan element
 // inisiasi arr untuk menyimpan setiap nilai dari input yang dikirimkan
-const todoList = [
-    'Belajar Javascript Dasar',
-    'Belajar Javascript DOM'
-];
+const todoList = ["Belajar Javascript Dasar", "Belajar Javascript DOM"];
 
 // inisiasi method untuk mereset data todolist
 const clearTodolist = () => {
@@ -22,13 +19,8 @@ const displayTodolist = () => {
 
   // inisiasi todoListBody
   const todoListBody = document.getElementById("todolistBody");
-  console.info(todoListBody);
 
-  // jalankan perulangan untuk setiap data yang ada didalam array todoList
-  for (const item of todoList) {
-    // inisiasi variabel untuk menyimpan nilai todoList saat ini kedalam variabel
-    const todo = item;
-
+  const addTodoList = (todo) => {
     // inisiasi var untuk menyimpan data create element 'div'
     const divAlert = document.createElement("div");
     divAlert.classList.add("alert", "mb-2");
@@ -58,9 +50,24 @@ const displayTodolist = () => {
     const clsBtn = document.createElement("button");
     clsBtn.type = "button";
     clsBtn.title = "close";
-    clsBtn.classList.add('close');
+    clsBtn.classList.add("close");
     clsBtn.textContent = "x";
     divAlert.appendChild(clsBtn);
+  };
+
+  // jalankan perulangan untuk setiap data yang ada didalam array todoList
+  for (const item of todoList) {
+    // inisiasi variabel untuk menyimpan nilai todoList saat ini kedalam variabel
+      const todo = item;
+      
+      //   inisiasi text yang akan dicari
+      const searchText = document.getElementById('search').value.toLowerCase();
+
+    //   jika data todo, salah satu nilai nya (per huruf / karakter) sama dengan searchText
+      if (todo.toLowerCase().includes(searchText)) {
+          //  panggil method addTodoList
+          addTodoList(todo);
+      }
   }
 };
 
@@ -78,6 +85,18 @@ document.forms["todoForm"].addEventListener("submit", (event) => {
   document.forms["todoForm"].reset();
 
   // tampilkan todolist
+  displayTodolist();
+});
+
+// dapatkan element input search
+const search = document.getElementById("search");
+// tambahkan event terhadap element
+// event ketika keyboard dilepas
+search.addEventListener("keyup", (event) => {
+    displayTodolist();
+});
+// event ketika keyboard ditekan
+search.addEventListener("keydown", (event) => {
   displayTodolist();
 });
 
