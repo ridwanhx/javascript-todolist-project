@@ -20,7 +20,7 @@ const displayTodolist = () => {
   // inisiasi todoListBody
   const todoListBody = document.getElementById("todolistBody");
 
-  const addTodoList = (todo) => {
+  const addTodoList = (index, todo) => {
     // inisiasi var untuk menyimpan data create element 'div'
     const divAlert = document.createElement("div");
     divAlert.classList.add("alert", "mb-2");
@@ -52,22 +52,33 @@ const displayTodolist = () => {
     clsBtn.title = "close";
     clsBtn.classList.add("close");
     clsBtn.textContent = "x";
+    //   tambahkan event ketika tombol close ditekan
+    clsBtn.onclick = () => removeTodoList(index);
     divAlert.appendChild(clsBtn);
+  };
+
+  // method untuk melakukan remove data todolist berdasarkan index todolist tersebut
+  const removeTodoList = (index) => {
+    todoList.splice(index, 1);
+    //   jalankan display todolist ulang / refresh halaman
+    displayTodolist();
   };
 
   // jalankan perulangan untuk setiap data yang ada didalam array todoList
   for (const item of todoList) {
     // inisiasi variabel untuk menyimpan nilai todoList saat ini kedalam variabel
-      const todo = item;
-      
-      //   inisiasi text yang akan dicari
-      const searchText = document.getElementById('search').value.toLowerCase();
+    const todo = item;
+    // inisiasi index
+    const index = todoList.findIndex((item) => item.includes(todo));
+
+    //   inisiasi text yang akan dicari
+    const searchText = document.getElementById("search").value.toLowerCase();
 
     //   jika data todo, salah satu nilai nya (per huruf / karakter) sama dengan searchText
-      if (todo.toLowerCase().includes(searchText)) {
-          //  panggil method addTodoList
-          addTodoList(todo);
-      }
+    if (todo.toLowerCase().includes(searchText)) {
+      //  panggil method addTodoList
+      addTodoList(index, todo);
+    }
   }
 };
 
@@ -93,7 +104,7 @@ const search = document.getElementById("search");
 // tambahkan event terhadap element
 // event ketika keyboard dilepas
 search.addEventListener("keyup", (event) => {
-    displayTodolist();
+  displayTodolist();
 });
 // event ketika keyboard ditekan
 search.addEventListener("keydown", (event) => {
